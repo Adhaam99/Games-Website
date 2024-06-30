@@ -1,0 +1,165 @@
+:root {
+
+    --main-color: #272B30;
+}
+
+body {
+    background-color: var(--main-color);
+    font-family: "Recursive", sans-serif;
+    font-variation-settings:
+    "slnt" 0,
+    "CASL" 0,
+    "CRSV" 0.5,
+    "MONO" 0;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #FFF;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #FF3D00;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+  .bg-nav{
+
+    background-color: #3A497B;
+}
+
+.bg-loading{
+
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+}
+
+header {
+
+    height: 210px;
+    overflow: hidden;
+    
+}
+
+header img{
+
+    width: 100%;
+    object-fit: cover;
+    transform: translateY(-150px);
+}
+
+nav{
+
+    transform: translateY(-50%);
+}
+
+.navbar-brand img{
+
+    max-width: 40px;
+}
+
+
+
+nav ul a{
+
+    color: white !important;
+    text-transform: uppercase;
+    font-size: 12px !important;
+    line-height: 18px !important;
+    transition: color 0.3s ease !important;
+}
+
+nav ul a:hover{
+
+    color: #09c !important;
+
+}
+
+nav h5{
+
+    font-size: 20px;
+    font-weight: 500;
+    color: white !important;
+}
+
+nav .active{
+
+    color: #09c !important;
+}
+
+.home .card{
+
+    filter: grayscale(0.7);
+    transition: transform 0.5s, filter 0.5s 0.1s;
+    background-color: transparent !important;
+}
+
+.home .card:hover{
+    filter: grayscale(0);
+    transform: scale(1.05);
+}
+
+.home .card .card-content .badge{
+
+    font-size: 12px;
+    line-height: 12px;
+    font-weight: 700;
+}
+
+
+
+.home .card .card-content p{
+
+    font-size: 14px;
+    line-height: 21px;
+}
+
+
+.card-footer span{
+
+    background-color: #32383E ;
+    padding: 5px 10px;
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 700;
+    border-radius: 50px;
+    box-shadow: 0 0 5px rgb(0 0 0 / 0.5) inset;
+}
+
+.details{
+
+    background-color: var(--main-color);
+}
+
+
+.details .small{
+
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.details span{
+
+}
