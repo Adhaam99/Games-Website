@@ -40,7 +40,7 @@ close.addEventListener("click", function () {
     body.classList.remove("overflow-hidden")
     detailsRow.innerHTML = 
     
-    `  <div class="bg-loading d-none d-flex justify-content-center align-items-center position-absolute top-0 bottom-0 start-0 end-0">
+    `  <div class="bg-loading  d-flex justify-content-center align-items-center position-absolute top-0 bottom-0 start-0 end-0">
     
                 <span class="loader"></span>
     
