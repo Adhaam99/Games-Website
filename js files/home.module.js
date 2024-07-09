@@ -8,8 +8,6 @@ export class Home {
 
         document.querySelectorAll(".navbar .nav-link").forEach((link) => {
 
-
-
             link.addEventListener("click", () => {
 
                 this.activeLink(link)
@@ -56,6 +54,8 @@ export class Home {
             const result = await response.json();
 
             this.loading.classList.add("d-none")
+
+            console.log(result)
 
             this.ui.displayGames(result)
 

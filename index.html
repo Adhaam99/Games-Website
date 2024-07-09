@@ -23,6 +23,14 @@
 
 <body  data-bs-spy="scroll" data-bs-target="#navbar-example">
 
+       <!--loading-->
+
+       <div
+       class="bg-loading  d-flex justify-content-center align-items-center position-absolute top-0 bottom-0 start-0 end-0">
+
+       <span class="loader"></span>
+
+   </div>
 
     <!--header-->
 
@@ -49,22 +57,22 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active"  href="#index">mmorpg</a>
+                            <a class="nav-link active" data-category="mmorpg" aria-current="page"  href="#index">mmorpg</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">shooter</a>
+                            <a class="nav-link" data-category="shooter" href="#">shooter</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">sailing</a>
+                            <a class="nav-link" data-category="sailing" href="#">sailing</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">permadeath</a>
+                            <a class="nav-link" data-category="permadeath" href="#">permadeath</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">superhero</a>
+                            <a class="nav-link" data-category="superhero" href="#">superhero</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">pixel</a>
+                            <a class="nav-link" data-category="pixel" href="#">pixel</a>
                         </li>
 
                     </ul>
@@ -80,14 +88,7 @@
             <div class="container">
                 <div class="row text-white" id="gameRow">
 
-                    <!--loading-->
-
-                    <div
-                        class="bg-loading  d-none justify-content-center align-items-center position-absolute top-0 bottom-0 start-0 end-0">
-
-                        <span class="loader"></span>
-
-                    </div>
+                 
                     
 
                 </div>
@@ -97,7 +98,7 @@
      
 
     </main>
-    <section class="details position-fixed top-0 bottom-0 start-0 end-0 text-white d-none overflow-y-scroll pb-4">
+    <section class="details position-fixed top-0 bottom-0 start-0 end-0 text-white d-none overflow-auto pb-4">
        
         <div class="container">
             <div class="details-header d-flex align-items-center justify-content-between">
@@ -107,11 +108,6 @@
 
             <div class="row g-4 " id="detailsRow">
 
-                <div class="bg-loading d-flex justify-content-center align-items-center position-absolute top-0 bottom-0 start-0 end-0 ">
-    
-                <span class="loader"></span>
-    
-            </div>
 
             </div>
         </div>

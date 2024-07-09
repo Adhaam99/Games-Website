@@ -1,85 +1,92 @@
 
-async function gameApi(categorey) {
 
-    const url = `https://free-to-play-games-database.p.rapidapi.com/api/games?category=${categorey}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'x-rapidapi-key': '19b8fb6c57msh114281b26c5fdf3p15fe33jsn8daf7b2111bf',
-            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
+export class Ui {
+
+    constructor() {
+        this.gameRow = document.querySelector("#gameRow");
+        this.detailsRow = document.querySelector("#detailsRow")
+
+    }
+
+    displayGames(data) {
+
+        let cartona=""
+
+        for(let i=0;i<data.length;i++){
+
+            cartona+= `                    
+            
+            <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="card w-100 h-100" id="${data[i].id}">
+    
+                            <div class="card-body">
+                                <div class="card-img mb-3">
+                                    <img src="${data[i].thumbnail}" class="card-img-top" alt="image">
+                                </div>
+                                <div class="card-content">
+                                    <div class="cont-1 d-flex justify-content-between align-items-center">
+                                        <h3 class="h6 text-white">${data[i].title}</h3>
+                                        <span class="type text-bg-primary p-2 rounded-2">Free</span>
+    
+                                    </div>
+                                    <p class="card-text text-center opacity-50 text-white">
+                                     ${data[i].short_description}
+                                    </p>
+    
+                                </div>
+    
+                            </div>
+                            <footer>
+                                <div class="card-footer d-flex justify-content-between text-white">
+                                    <span class="badge">${data[i].genre}</span>
+                                    <span class="badge">${data[i].platform}</span>
+                                </div>
+                            </footer>
+    
+                        </div>
+                    </div>
+                    
+                    `;
         }
-    };
 
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-
-
-        return result
-
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-
-async function detailsApi(id) {
-
-    const url = `https://free-to-play-games-database.p.rapidapi.com/api/game?id=${id}`;
-    const options = {
-        method: 'GET',
-        headers: {
-            'x-rapidapi-key': '19b8fb6c57msh114281b26c5fdf3p15fe33jsn8daf7b2111bf',
-            'x-rapidapi-host': 'free-to-play-games-database.p.rapidapi.com'
-        }
-    };
-
-    try {
-        const response = await fetch(url, options);
-        const result = await response.json();
-
-        return result
-    } catch (error) {
-        console.error(error);
-    }
-}
-
-export class Ui{
-
-    async gamesDisplay(category = "mmorpg",obj) {
-
-        let res = await gameApi(category)
-    
-        gameRow.innerHTML = ""
-    
-        for (let i = 0; i < res.length; i++) {
-    
-            let name = res[i].title
-    
-            name = new obj(res[i].id, res[i].title, res[i].thumbnail, res[i].short_description, res[i].genre, res[i].platform)
-    
-            name.gameDisplay()
-    
-    
-    
-        }
-    
-    
+        this.gameRow.innerHTML=cartona 
     }
 
-    async displayDetails(id,obj) {
+    detailsDisplay(data) {
 
-        details.classList.remove("d-none")
-        body.classList.add("overflow-hidden")
-    
-    
-        let res = await detailsApi(id)
-    
-        console.log(res);
-    
-        let element = new obj(res.title, res.thumbnail, res.status, res.description, res.game_url, res.genre, res.platform)
-    
-        element.detailsDisplay()
-    
+        let cartona = "";
+
+        cartona = `
+        
+        <div class="col-md-4">
+                        <div class="details-image">
+                            <img src="${data.thumbnail}" class="w-100" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <h3>Title: ${data.title}</h3>
+                        <p>Category:
+                            <span class="text-bg-info badge">${data.genre}</span>
+                        </p>
+                        <p>Platform:
+                            <span class="text-bg-info badge">${data.platform}</span>
+                        </p>
+                        <p>Status:
+                            <span class="text-bg-info badge">${data.status}</span>
+                        </p>
+                        <p class="small">
+                        ${data.description}
+                        </p>
+                        <a class="btn btn-outline-warning" target="_blank" href="${data.game_url}">Show Game</a>
+                    </div>
+
+
+        `
+        this.detailsRow.innerHTML = cartona;
+
+
     }
+
+
 }
