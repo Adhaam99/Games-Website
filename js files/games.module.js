@@ -1,9 +1,20 @@
-export let card=document.querySelectorAll(".card")
+export function hello(){
+    console.log("hello");
+}
 
 export class GamesDisplay {
 
     constructor(id, title, thumbnail, short_description, genre, platform) {
 
+        document.querySelectorAll(".navbar .nav-link").forEach((link) => {
+
+            link.addEventListener("click", () => {
+        
+                document.querySelector(".navbar .active").classList.remove('active')
+                link.classList.add('active')
+                
+            })
+        })
 
         this.id = id;
         this.title = title;
@@ -19,7 +30,7 @@ export class GamesDisplay {
         gameRow.innerHTML += `                    
             
         <div class="col-xl-3 col-lg-4 col-md-6">
-                    <div class="card w-100 h-100" id="${this.id}">
+                    <div class="card w-100 h-100" onclick="hello()" id="${this.id}">
 
                         <div class="card-body">
                             <div class="card-img mb-3">
@@ -50,18 +61,7 @@ export class GamesDisplay {
                 
                 `;
 
-                card=document.querySelectorAll(".card")
-
-                /*
-        $(".card").on("click", function (e) {
-
-            let id = $(e.currentTarget).attr("id")
-
-            //console.log(id);
-
-            getId(id)
-
-        })*/
+    
     }
 }
 

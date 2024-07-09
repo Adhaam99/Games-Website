@@ -7,15 +7,31 @@ const gameRow = document.querySelector("#gameRow")
 const details = document.querySelector(".details")
 const detailsRow = document.querySelector("#detailsRow")
 const close = document.querySelector("#close")
-const category = document.querySelectorAll(".nav-link")
 
-//import { GamesDisplay,card} from "./games.js"
-//import { DetailsDisplay } from "./details.js"
-//import { Ui } from "./ui.js"
+import { GamesDisplay, hello } from "./games.module.js"
+import { DetailsDisplay } from "./details.module.js"
+import { Ui } from "./ui.module.js"
+
+let ui = new Ui()
+let gamesDisplay = new GamesDisplay()
+let detailsDisplay = new DetailsDisplay()
+
 
 
 // Category Function
 
+
+document.querySelectorAll(".navbar .nav-link").forEach((link) => {
+
+    link.addEventListener("click", () => {
+
+        document.querySelector(".navbar .active").classList.remove('active')
+        link.classList.add('active')
+        
+    })
+})
+
+/*
 for (let i = 0; i < category.length; i++) {
 
     category[i].addEventListener("click", function (e) {
@@ -28,11 +44,15 @@ for (let i = 0; i < category.length; i++) {
 
         let cat = $(e.target).text()
 
-        gamesDisplay(cat)
+       ui.gamesDisplay(cat,GamesDisplay)
     })
 
 };
 
+
+ui.gamesDisplay("mmorpg",GamesDisplay)
+
+console.log('')
 
 close.addEventListener("click", function () {
 
@@ -48,6 +68,14 @@ close.addEventListener("click", function () {
 
 })
 
+
+
+
+
+
+
+
+/*
 gamesDisplay("mmorpg")
 
 
@@ -119,11 +147,14 @@ async function gamesDisplay(category = "mmorpg") {
 
 }
 
-gamesDisplay()
+
 
 // Details Display
 
+function details(id){
 
+
+}
 
 async function displayDetails(id) {
 
@@ -249,7 +280,7 @@ class GamesDisplay {
 
 }
 
-
+*/
 
 
 
